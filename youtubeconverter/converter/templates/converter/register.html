@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>hej</h1>
+<h1>Register a youtube URL</h1>
+
+<form class="site-form" action="{% url 'converter:register'%}" method="post">
+
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Register">
 {% endblock %}
