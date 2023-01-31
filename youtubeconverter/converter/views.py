@@ -20,7 +20,7 @@ def download(request,slug):
         path="converter/videos/"+video.title+".mp4"
         file = FileWrapper(open(path, 'rb'))
         response = HttpResponse(file, content_type='video/mp4')
-        response['Content-Disposition'] = 'attachment; filename=my_video.mp4'
+        response['Content-Disposition'] = 'attachment; filename='+video.title+'.mp4'
         return response
     else:
         return render(request, "converter/download.html" ,{'video':video})
@@ -29,10 +29,10 @@ def video_convert(request,slug):
     video  = models.Video.objects.get(slug=slug)
     if request.method=='POST':
         link = video.field_name
-        title = youtubeConvert.YoutubeConverter.convert(link)
-        video.title = title
-        
-        video.save()
+        if("youtube.com" in link):
+            title = youtubeConvert.YoutubeConverter.convert(link)
+            video.title = title
+            video.save()
         return redirect('converter:download' ,slug=slug)
     else:
         return render(request,"converter/video_convert.html",{'video':video})

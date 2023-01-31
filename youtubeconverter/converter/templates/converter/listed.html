@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for vid in listed %}
-<div class="video">
-    <h2><a href="{% url 'converter:convert' slug=vid.slug %}"> {{vid.title}}</a></h2>
-    <p>{{vid.field_name}}</p>
+<h2>Listed Songs:   </h2>
+<div class="videos">
+    {% for vid in listed %}
+        <div class="video">
+            <h2><a href="{% url 'converter:convert' slug=vid.slug %}"> {{vid.title}}</a></h2>
+        </div>
+    {% endfor %}
 </div>
-{% endfor %}
+
 {% endblock %}

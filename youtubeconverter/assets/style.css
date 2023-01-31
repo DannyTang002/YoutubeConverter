@@ -2,9 +2,9 @@ body{
     background-color: #F7F8F5;
     background-size: auto;
     color: black;
-}
-
-body *{
+    margin: 0;
+    background-image: url("cool.gif");
+    font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -19,6 +19,49 @@ a{
 }
 
 a:hover, a:visited{
-    color: gray;
+    color: black;
 
 }
+
+.navbar {
+    position: relative; 
+    top: 0;
+    width: 100%; 
+    background-color: #333; 
+    display: flex; 
+    margin-bottom:30px;   
+  }
+  
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 32px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.videos{
+    padding: 12px;
+    border: solid 3px black ;
+}
+.videos .video{
+    margin: 24px;
+}
+
+.videos .video h2 a:hover {
+    color: gray;
+}
+

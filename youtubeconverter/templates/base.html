@@ -9,9 +9,13 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+    <div class="navbar">
+        <a href="{%url 'converter:listed' %}">Listed Songs</a>
+        <a href="{%url 'converter:register'%}">Register Song</a>
+        
+        
+      </div>
     {% block content %}
     {% endblock %}
-
-    <img src="{% static 'vibe-bear.gif'  %}"/>
 </body>
 </html>
