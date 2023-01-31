@@ -8,41 +8,38 @@ from pathlib import Path
 from django.contrib import messages
 import os
 import requests
+from django.conf import settings
+from django.http import HttpResponse, Http404
+from wsgiref.util import FileWrapper
 
 
 # Create your views here.
+def download(request,slug):
+    video  = models.Video.objects.get(slug=slug)
+    if request.method=='POST':
+        path="converter/videos/"+video.title+".mp4"
+        file = FileWrapper(open(path, 'rb'))
+        response = HttpResponse(file, content_type='video/mp4')
+        response['Content-Disposition'] = 'attachment; filename=my_video.mp4'
+        return response
+    else:
+        return render(request, "converter/download.html" ,{'video':video})
 
 def video_convert(request,slug):
     video  = models.Video.objects.get(slug=slug)
     if request.method=='POST':
         link = video.field_name
         title = youtubeConvert.YoutubeConverter.convert(link)
-        if 'convert' in request.POST:
-                file_server = Path("videos/" + title +".mp4")
-                if not file_server.exists():
-                    messages.error(request, 'file not found.')
-                    return HttpResponse(title)
-                else:
-                    file_to_download = open(str(file_server), 'rb')
-                    response = FileResponse(file_to_download, content_type='application/force-download')
-                    response['Content-Disposition'] = 'inline; filename='+title+'.mp4'
-                    return response
-        elif 'stream' in request.POST:
-            url = 'converter/videos/'+title+".mp4"
-            filename = os.path.basename(url)
-            r = requests.get(url, stream=True)
-            response = StreamingHttpResponse(streaming_content=r)
-            response['Content-Disposition'] = f'attachement; filename="{filename}"'
-            return response
-        else:
-            return redirect('converter:listed')
+        video.title = title
+        
+        video.save()
+        return redirect('converter:download' ,slug=slug)
     else:
         return render(request,"converter/video_convert.html",{'video':video})
 
 def listed_view(request):
     listed = models.Video.objects.all()
     return render(request, "converter/listed.html", {'listed':listed})
-
 
 def register_view(request):
     if request.method == 'POST':

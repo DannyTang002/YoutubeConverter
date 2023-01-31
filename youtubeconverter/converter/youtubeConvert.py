@@ -7,4 +7,9 @@ class YoutubeConverter:
         title = file.title
         file = file.streams.get_lowest_resolution()
         file.download("converter/videos")
-        return title
+        return title        
+    
+
+    def getThumb(url):
+        file= YouTube(url)
+        return file.thumbnail_url
