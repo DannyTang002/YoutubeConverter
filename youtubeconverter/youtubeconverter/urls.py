@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from converter import views as converter_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('converter/', include('converter.urls'))
+    path('converter/', include('converter.urls')),
+    path('', converter_views.listed_view,name="home")
 ]
 
 urlpatterns + staticfiles_urlpatterns()

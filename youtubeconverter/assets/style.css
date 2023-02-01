@@ -3,7 +3,7 @@ body{
     background-size: auto;
     color: black;
     margin: 0;
-    background-image: url("cool.gif");
+    background-image: url("vibe-bear.gif");
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -54,14 +54,28 @@ a:hover, a:visited{
 }
 
 .videos{
-    padding: 12px;
+    width: 100%; 
+    background-color: #333; 
+    display: flex; 
+    flex-direction: column;
     border: solid 3px black ;
+    background-color: white;
+    margin: 0;
+    padding: 0;
 }
-.videos .video{
-    margin: 24px;
+.videos .video {
+  text-decoration: none;
+  font-size: 17px;
+  text-decoration: none;
+  margin: 20px;
 }
 
-.videos .video h2 a:hover {
-    color: gray;
+.videos.video h2{
+  padding: 20px 32px;
+}
+
+.videos .video a:hover {
+   color: white;
+   background-color: black;
 }
 

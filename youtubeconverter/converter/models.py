@@ -5,7 +5,7 @@ from django.utils.text import slugify
 
 # Create your models here.
 class Video(models.Model):
-    title =  models.CharField(max_length=100,default="video")
+    title =  models.CharField(max_length=100)
     field_name = models.URLField(max_length=200)
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length = 250, null = True, blank = True)
