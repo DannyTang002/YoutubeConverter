@@ -9,3 +9,6 @@ class YoutubeConverter:
         file.download("converter/videos",filename=id+".mp4")
         return title        
     
+    def getThumb(url):
+         file= YouTube(url)
+         return file.thumbnail_url

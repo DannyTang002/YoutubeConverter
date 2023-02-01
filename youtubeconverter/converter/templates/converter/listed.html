@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Listed Songs:   </h2>
+<h2 style="text-align: center;
+font-size: 30px; font-weight: 900;" 
+
+>Listed Songs:   </h2>
 <div class="videos">
     {% for vid in listed %}
         <div class="video">
             <h2><a href="{% url 'converter:convert' slug=vid.slug %}"> {{vid.title}}</a></h2>
+            {% if vid.status %}
+            <p>video is converted</p>
+            {% else %}
+            <p>video  is not converted</p>
+            {% endif %}
         </div>
     {% endfor %}
 </div>

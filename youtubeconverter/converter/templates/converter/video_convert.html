@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="video">
+<div class="video-form">
     <h2>{{video.title}}</h2>
     <form method="post">
         {% csrf_token %}
-        <button type="submit"  value="convert" name="convert">convert</button>
-        <button type="submit"  value="stream" name="stream">stream</button>
+        {% if video.status %}
+            <img src={{thumb}}>
+        {% endif %}
+        <div class="buttons">
+            <button type="submit"  value="convert" name="convert">convert</button>
+            <button type="submit"  value="stream" name="stream">stream</button>
+        </div>
+        
     </form>
 </div>
 {% endblock %}

@@ -10,13 +10,11 @@ class Video(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length = 250, null = True, blank = True)
     thumb = models.ImageField(default='default.jpg',blank=True)
+    status = models.BooleanField(default=False)
     #author = models.ForeignKey(User,default=None,on_delete=models.CASCADE)
     #foreign key is mapping a model another model
     def __str__(self):#så att databasen visar att varje article riktar mot sin titel
         return self.title
-
-    def get_absolute_url(self):
-        return reverse ("article_detail",kwargs={'slug':self.slug})
 
     def save(self, *args, **kwargs):  # new
         if not self.slug:
