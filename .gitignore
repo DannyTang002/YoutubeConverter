@@ -6,7 +6,7 @@ __pycache__
 db.sqlite3
 media
 
-converter\videos
+youtubeconverter/converter/videos
 
 # Backup files # 
 *.bak 
