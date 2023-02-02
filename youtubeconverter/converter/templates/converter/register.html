@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Register a youtube URL</h1>
 
-<form class="site-form" action="{% url 'converter:register'%}" method="post">
+<div class="content-reg">
+    <h1>Register a youtube URL</h1>
+    <div class="register">
+        <form class="site-form" action="{% url 'converter:register'%}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Register">
+    </div>
 
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Register">
+</div>
+
+
 {% endblock %}

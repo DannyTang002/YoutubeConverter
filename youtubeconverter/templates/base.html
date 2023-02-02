@@ -12,12 +12,14 @@
     <div class="navbar">
         <a href="{%url 'converter:listed' %}">Listed Songs</a>
         <a href="{%url 'converter:register'%}">Register Song</a>
+        <a href="{%url 'converter:register'%}">Register a Playlist</a>
     </div>
 
 
     <div class="hero"></div>  
-    {% block content %}
-    {% endblock %}
-  
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>
