@@ -32,7 +32,7 @@ def video_convert(request,slug):
     if request.method=='POST':
         link = video.field_name
         if("youtube.com" in link):
-            if(not video.status):
+            if(not video.status ):
                 id = str(video.id)
                 title = youtubeConvert.YoutubeConverter.convert(link,id)
                 video.title = title
