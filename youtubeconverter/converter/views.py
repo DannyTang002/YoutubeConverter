@@ -41,11 +41,9 @@ def video_convert(request,slug):
         return redirect('converter:download' ,slug=slug)
     else:
         return render(request,"converter/video_convert.html",{'video':video,'thumb':thumb})
+        
 def listed_view(request):
     listed = models.Video.objects.all()
-    for list in listed:
-        print(list.status)
-
     return render(request, "converter/listed.html", {'listed':listed})
 
 def register_view(request):

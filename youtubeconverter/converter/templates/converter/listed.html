@@ -8,10 +8,11 @@ font-size: 30px; font-weight: 900;"
 <div class="videos">
     {% for vid in listed %}
         <div class="video">
-            <h2><a href="{% url 'converter:convert' slug=vid.slug %}"> {{vid.title}}</a></h2>
             {% if vid.status %}
+            <h2><a href="{% url 'converter:download' slug=vid.slug %}"> {{vid.title}}</a></h2>
             <p>video is converted</p>
             {% else %}
+            <h2><a href="{% url 'converter:convert' slug=vid.slug %}"> {{vid.title}}</a></h2>
             <p>video  is not converted</p>
             {% endif %}
         </div>
