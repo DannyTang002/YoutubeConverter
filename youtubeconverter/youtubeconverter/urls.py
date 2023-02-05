@@ -21,7 +21,8 @@ from converter import views as converter_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('converter/', include('converter.urls')),
-    path('', converter_views.listed_view,name="home")
+    path('', converter_views.listed_view,name="home"),
+    path('accounts/', include('accounts.urls'))
 ]
 
 urlpatterns + staticfiles_urlpatterns()

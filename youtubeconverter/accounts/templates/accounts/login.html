@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Log In</h1>
+<form class="site-form" action="{% url 'accounts:login' %}" method="post">
+{% csrf_token %}
+{{ form }}
+{% if request.GET.next  %}
+    <input type="hidden" name = "next" value="{{request.GET.next}}">
+{% endif %}
+    <input type="submit" value="Log In" >
+</form>
+{% endblock %}
