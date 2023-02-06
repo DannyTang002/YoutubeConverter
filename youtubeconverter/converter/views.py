@@ -1,16 +1,12 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse, HttpResponseRedirect,StreamingHttpResponse
+from django.http import HttpResponse
 from .import forms
 from .import models
 from .import youtubeConvert
-from django.http import FileResponse
-from pathlib import Path
-from django.contrib import messages
-import os
-import requests
 from django.conf import settings
 from django.http import HttpResponse, Http404
 from wsgiref.util import FileWrapper
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -46,6 +42,8 @@ def listed_view(request):
     listed = models.Video.objects.all()
     return render(request, "converter/listed.html", {'listed':listed})
 
+
+@login_required(login_url="/accounts/login")
 def register_view(request):
     if request.method == 'POST':
         form = forms.CreateVideo(request.POST)
