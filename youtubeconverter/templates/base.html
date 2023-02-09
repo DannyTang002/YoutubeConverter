@@ -10,14 +10,16 @@
 </head>
 <body>
     <div class="navbar">
-        
+        <div class="link">
+                
+            <a href="{%url 'converter:listed' %}">Listed Songs</a>
+            <a href="{%url 'converter:register'%}">Register Song</a>
 
+        </div>
 
-        <a href="{%url 'converter:listed' %}">Listed Songs</a>
-        <a href="{%url 'converter:register'%}">Register Song</a>
+  
         <div class="submits">
             {% if user.is_authenticated %}
-           
                 <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                     {% csrf_token %}
                     <button type="submit">LOGOUT</button>

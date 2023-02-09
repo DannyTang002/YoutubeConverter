@@ -33,13 +33,25 @@ a:hover, a:visited{
 }
 
 .navbar {
-    position: relative; 
-    top: 0;
-    width: 100%; 
+    overflow: hidden;
     background-color: #333; 
-    display: flex; 
     margin-bottom:30px;   
+  
   }
+
+
+.navbar .link{
+    float: left;
+    display: flex;
+    flex-direction: row;
+}
+      
+.navbar .submits{
+  float: right;
+  display: flex;
+  flex-direction: row;
+  
+}
   
 .navbar a {
   float: left;
@@ -49,6 +61,18 @@ a:hover, a:visited{
   padding: 20px 32px;
   text-decoration: none;
   font-size: 17px;
+}
+
+.navbar button {
+  background-color: gray; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 0.3rem  ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 
@@ -61,6 +85,8 @@ a:hover, a:visited{
   background-color: #04AA6D;
   color: white;
 }
+
+
 
 .videos{
     width: 100%; 
