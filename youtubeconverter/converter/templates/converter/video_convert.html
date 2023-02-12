@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+
+
+
 <div class="video-form">
     <h2>{{video.title}}</h2>
     <form method="post">
@@ -8,21 +11,22 @@
             <img src={{thumb}}>
         {% endif %}
         <div class="buttons">
-            <button type="submit"  value="convert" name="convert">convert</button>
-            <button type="submit"  value="stream" name="stream">stream</button>
+            <button  type="submit" onclick =loading() value="convert" name="convert" >convert</button>
         </div>
-        
     </form>
+    <div id="loading" class="block">
+        <div class = "bar">
+            <div class="progress">
+                <div class="color"></div>
+            </div>       
+        </div>
+    </div>
+    <script>
+        function loading() { 
+            var x = document.getElementById("loading"); 
+            x.style.display="block"
+        }
+    </script>
+
 </div>
 {% endblock %}
-
-<div class="progress">
-    <div class="color"></div>
-</div>
-
-
-<script>
-    function myFunction() {
-      document.getElementById("demo").style.color = "red";
-    }
-</script>

@@ -121,6 +121,7 @@ a:hover, a:visited{
   font-size: 30px;
   background-color: white;
   border: solid 3px black ;
+  align-items: center;
 }
 
 .video-form img{
@@ -165,3 +166,45 @@ a:hover, a:visited{
 }
 
 
+.block{
+  display: none;
+}
+
+.bar{
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%,-50%);
+}
+.progress{
+  position: relative;
+  height: 10px;
+  width: 30%;
+  border: 10px solid black;
+  border-radius: 15px;
+}
+.progress .color{
+  position: absolute;
+  background-color: lightblue;
+  width: 0px;
+  height: 10px;
+  border-radius: 15px;
+  animation: progres 4s infinite linear;    
+}
+@keyframes progres{
+  0%{
+    width: 0%;
+  }
+  25%{
+      width: 50%;
+  }
+  50%{
+      width: 75%;
+  }
+  75%{
+      width: 85%;
+  }
+  100%{
+      width: 100%;
+  }
+};
