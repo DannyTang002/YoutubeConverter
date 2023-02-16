@@ -38,8 +38,9 @@ def video_convert(request,slug):
     else:
         return render(request,"converter/video_convert.html",{'video':video,'thumb':thumb})
         
+@login_required(login_url="/accounts/login")
 def listed_view(request):
-    listed = models.Video.objects.all()
+    listed = models.Video.objects.filter(user=request.user)
     return render(request, "converter/listed.html", {'listed':listed})
 
 
@@ -50,6 +51,7 @@ def register_view(request):
         if form.is_valid():
             #save to db
             instance = form.save(commit=False)
+            instance.user=request.user  
             instance.save()
             return redirect('converter:listed')
     else:

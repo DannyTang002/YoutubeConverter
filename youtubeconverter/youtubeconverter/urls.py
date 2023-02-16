@@ -22,7 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('converter/', include('converter.urls')),
     path('', converter_views.listed_view,name="home"),
-    path('accounts/', include('accounts.urls'))
+    path('accounts/', include('accounts.urls')),
+    path('playlist/', include('playlist.urls'))
 ]
 
 urlpatterns + staticfiles_urlpatterns()

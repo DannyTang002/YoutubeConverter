@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<h2 style="text-align: center; font-size: 30px; font-weight: 900">
+  Listed Songs:
+</h2>
+<div class="Playlists">
+  {% for playlist in listed %}
+  <div class="playlist">
+    <h2>
+      <a href="{% url 'playlist:info' slug=playlist.slug %}">
+        {{playlist.title}}</a
+      >
+    </h2>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
