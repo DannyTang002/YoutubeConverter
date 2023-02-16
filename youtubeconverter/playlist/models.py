@@ -13,8 +13,6 @@ class PlayList(models.Model):
     def __str__(self):#så att databasen visar att varje article riktar mot sin titel
         return self.title
 
-
-
     def save(self, *args, **kwargs):  # new
         if not self.slug:
             self.slug = slugify(self.title)
