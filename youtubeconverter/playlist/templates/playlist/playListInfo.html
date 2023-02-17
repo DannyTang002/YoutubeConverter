@@ -1,5 +1,14 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}{% block content %}
+{% load static%}
 <h2 style="text-align: center; font-size: 30px; font-weight: 900">
+<button type="button" id="addSong">Add Song</button>
   {{item.title}}
 </h2>
+
+
+<table id="songs">
+  <h2>231</h2>
+</table>
+<script src="{% static 'js/registerSong.js'%}" type="module"></script>
+
 {% endblock %}

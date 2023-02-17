@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .import forms
 from .import models
 from .import youtubeConvert
@@ -58,3 +58,14 @@ def register_view(request):
         form = forms.CreateVideo()
         return render (request,"converter/register.html", {'form':form})
     
+
+def get_data(request):
+    videos = models.Video.objects.all()
+    data = []
+    for video in videos:
+        dict ={
+            "id":video.id,
+            "title":video.title
+        }
+        data.append(dict)
+    return JsonResponse(data,safe=False)

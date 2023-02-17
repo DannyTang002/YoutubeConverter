@@ -8,7 +8,7 @@ body{
 
 .hero{
   background-image: url("vibe-bear.gif") ;
-  opacity:0.5;
+  opacity:0.2;
   position:absolute;
   top:0;
   bottom:0;
@@ -208,3 +208,5 @@ a:hover, a:visited{
       width: 100%;
   }
 };
+
+table {background-color: black}
