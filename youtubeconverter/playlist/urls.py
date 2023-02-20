@@ -7,4 +7,5 @@ urlpatterns = [
     path("register/", views.register_playlist, name="register"),
     path("listed/", views.listed_playlist, name="listed"),
     path("info/<slug>", views.show_info, name="info"),
+    path("add-song/", views.add_song, name="add-song"),
 ]

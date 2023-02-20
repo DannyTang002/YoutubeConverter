@@ -210,3 +210,9 @@ a:hover, a:visited{
 };
 
 table {background-color: black}
+
+tr:active {
+
+  background-color: green;
+  
+}

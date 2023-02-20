@@ -3,7 +3,7 @@ class Songs {
       this.table = document.getElementById(tableId);
       this.keySet = ["id", "title"];
     }
-   
+    
     getData(){
         fetch("/converter/get-videos")
         .then((response)=>response.json())

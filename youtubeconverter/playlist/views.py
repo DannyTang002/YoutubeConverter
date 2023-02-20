@@ -14,7 +14,7 @@ def show_info(request,slug):
     return render(request, "playlist/playListInfo.html", {"item":playlist})
 
 @login_required(login_url="/accounts/login")
-def addSong(request):
+def add_song(request):
     data = json.loads(request.body)
     try:
         playlist = PlayList.objects.get(title=data["title"])
